@@ -71,7 +71,7 @@ func TestBookClass(t *testing.T) {
 	router := SetUpRouter()
 	router.POST("/bookings", BookClass)
 
-	var jsonStr = []byte(`{"name":"John Doe","date":"2024-12-01"}`)
+	var jsonStr = []byte(`{"name":"Venkanna","date":"2024-12-01"}`)
 	req, _ := http.NewRequest("POST", "/bookings", bytes.NewBuffer(jsonStr))
 	req.Header.Set("Content-Type", "application/json")
 
@@ -79,18 +79,18 @@ func TestBookClass(t *testing.T) {
 	router.ServeHTTP(w, req)
 
 	assert.Equal(t, http.StatusOK, w.Code)
-	assert.Contains(t, w.Body.String(), "John Doe")
+	assert.Contains(t, w.Body.String(), "Venkanna")
 
 	// Validate that the booking was added
 	assert.Equal(t, 1, len(models.Bookings))
-	assert.Equal(t, "John Doe", models.Bookings[0].Name)
+	assert.Equal(t, "Venkanna", models.Bookings[0].Name)
 }
 
 func TestGetAllBookings(t *testing.T) {
 	// Reset the data before each test
 	models.Bookings = []models.Booking{
 		{
-			Name: "John Doe",
+			Name: "Venkanna",
 			Date: time.Date(2024, 12, 1, 0, 0, 0, 0, time.UTC),
 		},
 	}
@@ -104,5 +104,5 @@ func TestGetAllBookings(t *testing.T) {
 	router.ServeHTTP(w, req)
 
 	assert.Equal(t, http.StatusOK, w.Code)
-	assert.Contains(t, w.Body.String(), "John Doe")
+	assert.Contains(t, w.Body.String(), "Venkanna")
 }
