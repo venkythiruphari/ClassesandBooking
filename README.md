@@ -26,7 +26,7 @@ This project provides a simple API for creating and booking classes using the Gi
 
 5. Run the simple unit testcases:
 
-  go test ./handlers -v || go test ./handlers
+  go test ./handlers -v `or` go test ./handlers
 
 6. The API will be available at http://localhost:6000.
 
