@@ -24,7 +24,11 @@ This project provides a simple API for creating and booking classes using the Gi
 
   go run main.go
 
-5. The API will be available at http://localhost:6000.
+5. Run the simple unit testcases:
+
+  go test ./handlers -v || go test ./handlers
+
+6. The API will be available at http://localhost:6000.
 
 ### API Endpoints
 
